@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#F4EEFB">
+    <meta name="description" content="Mis 30. Una celebración íntima y un nuevo capítulo para compartir contigo.">
+    <title>Mis 30 · Camila — Mi historia, contigo</title>
+    <link rel="preload" href="assets/fonts/cormorant.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/pinyon-script.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="styles.css">
+    <!-- Activa las apariciones al desplazarse solo si hay JavaScript; sin él todo queda visible. -->
+    <script>document.documentElement.classList.add("js");</script>
+    <!-- Scripts clásicos: también funcionan al abrir index.html directamente. -->
+    <script src="guests.js" defer></script>
+    <script src="gallery-data.js" defer></script>
+    <script src="gallery.js" defer></script>
+    <script src="people-data.js" defer></script>
+    <script src="people.js" defer></script>
+    <script src="event-data.js" defer></script>
+    <script src="event.js" defer></script>
+    <script src="rsvp-data.js" defer></script>
+    <script src="rsvp.js" defer></script>
+    <script src="farewell-data.js" defer></script>
+    <script src="farewell.js" defer></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <!-- Fondo: ondas lavanda con arco dorado, recortadas de la imagen original
+         (assets/fondo-lavanda.jpg) en tres piezas para que acompañen cualquier tamaño de pantalla. -->
+    <div class="backdrop" aria-hidden="true">
+      <div class="glow glow-a"></div>
+      <div class="glow glow-b"></div>
+      <div class="wave wave-top"><img src="assets/onda-superior.webp" alt="" width="600" height="860"><span class="shine" style="--mask: url(assets/oro-superior.webp)"></span></div>
+      <div class="wave wave-top-right"><img src="assets/onda-superior-derecha.webp" alt="" width="341" height="440"><span class="shine" style="--mask: url(assets/oro-superior-derecha.webp)"></span></div>
+      <div class="wave wave-bottom"><img src="assets/onda-inferior.webp" alt="" width="941" height="792"><span class="shine" style="--mask: url(assets/oro-inferior.webp)"></span></div>
+      <span class="sparkle" style="--x: 12%; --d: 0s; --s: 1"></span>
+      <span class="sparkle" style="--x: 27%; --d: 3.2s; --s: .6"></span>
+      <span class="sparkle" style="--x: 44%; --d: 6.5s; --s: .8"></span>
+      <span class="sparkle" style="--x: 61%; --d: 1.6s; --s: .5"></span>
+      <span class="sparkle" style="--x: 78%; --d: 4.8s; --s: .9"></span>
+      <span class="sparkle" style="--x: 90%; --d: 8s; --s: .6"></span>
+    </div>
+
+    <header class="masthead entrance entrance-label">
+      <a class="monogram" href="#portada" aria-label="Ir a la portada">c<span>·</span>30</a>
+      <span class="masthead-note">Una vida de momentos</span>
+    </header>
+
+    <main>
+      <section class="hero" id="portada" aria-labelledby="hero-title">
+        <figure class="memory">
+          <div class="arch">
+            <!-- Marco dorado que se dibuja al cargar. -->
+            <svg class="arch-line" viewBox="0 0 220 320" preserveAspectRatio="none" aria-hidden="true">
+              <path pathLength="1" d="M4 316V110A106 106 0 0 1 216 110V316"/>
+            </svg>
+            <span class="arch-star" aria-hidden="true"></span>
+            <div class="photo-frame entrance-photo" id="photo-frame">
+              <!-- Alternativa visible sin JavaScript o si la fotografía falla. -->
+              <div class="photo-fallback" id="photo-fallback" role="img" aria-label="Ilustración: capítulo 30, mi historia contigo">
+                <span class="fallback-label">El álbum de mi vida</span>
+                <span class="fallback-number" aria-hidden="true">30</span>
+                <span class="fallback-signature">Mi historia, contigo</span>
+              </div>
+              <!-- PROVISIONAL: sustituir por un retrato real de Camila. -->
+              <img id="hero-photo" class="hero-photo" src="assets/camila.jpg"
+                alt="Fotografía provisional: retrato individual para la portada de Camila"
+                width="1400" height="2098" fetchpriority="high" decoding="async" hidden>
+            </div>
+          </div>
+          <figcaption class="photo-caption entrance entrance-caption">
+            <span class="photo-index" aria-hidden="true">01 —</span>
+            <span id="photo-caption">Un nuevo capítulo, la misma esencia.</span>
+          </figcaption>
+          <span class="memory-note entrance entrance-caption" aria-hidden="true">las personas hacen la historia.</span>
+        </figure>
+
+        <div class="hero-copy">
+          <p class="eyebrow entrance entrance-label" id="birthday-label">MIS 30 · CAMILA</p>
+          <h1 class="entrance-title" id="hero-title">Mi historia, contigo</h1>
+          <span class="short-rule entrance entrance-support" aria-hidden="true"><i></i></span>
+          <p class="support entrance entrance-support">Por eso quiero que estés conmigo para celebrar este nuevo capítulo</p>
+          <a class="invitation-button entrance entrance-button" id="discover-button" href="#invitacion" aria-controls="invitation-content" aria-expanded="false">
+            <span>Descubre la invitación</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></g>
+            </svg>
+          </a>
+          <p class="closing-note entrance entrance-closing">Con cariño, <span id="host-signature">Camila</span></p>
+        </div>
+      </section>
+
+      <!-- La invitación se abre al pulsar "Descubre la invitación" (sin JavaScript queda visible). -->
+      <div class="invitation-content" id="invitation-content">
+      <!-- Álbum compartido: sus datos no dependen del parámetro invitado. -->
+      <section class="story-gallery" id="invitacion" aria-labelledby="gallery-title" tabindex="-1">
+        <header class="gallery-heading reveal">
+          <p class="gallery-kicker"><span aria-hidden="true">02</span> EL ÁLBUM DE MI VIDA</p>
+          <h2 id="gallery-title">Cada etapa me trajo hasta aquí</h2>
+          <p class="gallery-introduction">He cambiado, he aprendido y he vivido momentos que guardo con cariño. Hoy quiero celebrar todo ese camino contigo</p>
+          <span class="gallery-heading-rule" aria-hidden="true"></span>
+        </header>
+        <ol class="gallery-track" id="gallery-track" tabindex="0" aria-label="Fotografías de las cinco etapas de mi vida" aria-describedby="gallery-hint">
+          <!-- gallery.js crea las fotografías a partir del arreglo gallery-data.js. -->
+        </ol>
+        <div class="gallery-footer">
+          <span class="gallery-progress" id="gallery-progress" aria-hidden="true"></span>
+          <p id="gallery-hint">Desliza entre recuerdos <span aria-hidden="true">·</span> toca una foto para verla completa<span class="visually-hidden">. Con el teclado, usa las flechas izquierda y derecha, Inicio y Fin.</span></p>
+          <div class="gallery-controls" role="group" aria-label="Recorrer el álbum">
+            <button class="gallery-arrow" id="gallery-previous" type="button" aria-label="Fotografía anterior" aria-controls="gallery-track" disabled>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></g></svg>
+            </button>
+            <span class="gallery-counter" id="gallery-counter" role="status" aria-live="polite" aria-atomic="true" aria-label="Fotografía 1 de 5">01 / 05</span>
+            <button class="gallery-arrow" id="gallery-next" type="button" aria-label="Fotografía siguiente" aria-controls="gallery-track" disabled>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></g></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- Tercer capítulo compartido. Sus recuerdos se editan en people-data.js. -->
+      <section class="people-album" id="nuestros-recuerdos" aria-labelledby="people-title">
+        <div class="people-inner">
+          <header class="people-heading reveal">
+            <p class="people-kicker"><span aria-hidden="true">03</span> LAS PERSONAS DE MI HISTORIA</p>
+            <h2 id="people-title">Mi historia también está hecha de ustedes</h2>
+            <p class="people-introduction">Cada uno tiene un lugar especial en mi vida. Qué bonito reunirlos para compartir un nuevo recuerdo</p>
+            <span class="people-heading-rule" aria-hidden="true"></span>
+          </header>
+          <ul class="people-memories" id="people-memories" aria-label="Álbum de recuerdos con las personas invitadas">
+            <!-- Seis entradas provisionales; añadir más al arreglo sin modificar el diseño. -->
+          </ul>
+          <p class="people-hint">Toca un recuerdo para verlo completo.</p>
+        </div>
+      </section>
+      <!-- Cuarto capítulo compartido. Datos provisionales en event-data.js. -->
+      <section class="celebration-details" id="nos-vemos-aqui" aria-labelledby="event-title">
+        <div class="event-paper">
+          <header class="event-heading reveal">
+            <p class="event-kicker"><span aria-hidden="true">04</span> NOS VEMOS AQUÍ</p>
+            <h2 id="event-title">Una noche para sumar recuerdos</h2>
+            <p id="event-introduction">Una mesa, nuestras historias y las personas que quiero cerca. Te espero para celebrar mis 30</p>
+          </header>
+          <div class="event-date-block">
+            <time id="event-date" datetime="2026-11-14">
+              <span class="event-weekday" id="event-weekday">SÁBADO</span>
+              <span class="event-day" id="event-day">14</span>
+              <span class="event-month-year" id="event-month-year">NOVIEMBRE · 2026</span>
+            </time>
+          </div>
+          <dl class="event-facts">
+            <div class="event-fact">
+              <dt><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg><span>LA HORA</span></dt>
+              <dd><time id="event-time" datetime="2026-11-14T19:00:00-06:00">7:00 p. m.</time><span class="event-fact-note">Hora local de Durango</span></dd>
+            </div>
+            <div class="event-fact">
+              <dt><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg><span>EL LUGAR</span></dt>
+              <dd><span id="event-venue">Jardín Magnolia, Durango</span><span class="event-fact-note" id="event-address">Dirección por confirmar</span></dd>
+            </div>
+            <div class="event-fact">
+              <dt><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.38 3.46 16 2a4 4 0 0 1-8 0L3.62 3.46a2 2 0 0 0-1.34 2.23l.58 3.47a1 1 0 0 0 .99.84H6v10c0 1.1.9 2 2 2h8a2 2 0 0 0 2-2V10h2.15a1 1 0 0 0 .99-.84l.58-3.47a2 2 0 0 0-1.34-2.23z"/></svg><span>QUÉ PONERTE</span></dt>
+              <dd id="event-dress-code">Elegante y cómodo, a tu estilo</dd>
+            </div>
+          </dl>
+          <div class="event-actions">
+            <a class="event-action event-map" id="event-map" target="_blank" rel="noopener noreferrer" aria-label="Cómo llegar (abre Google Maps en otra pestaña)" hidden>
+              Cómo llegar <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+            </a>
+            <button class="event-action event-map-pending" id="event-map-pending" type="button" disabled>Ubicación próximamente</button>
+            <a class="event-action event-save" id="event-save" download="mi-historia-contigo.ics" hidden>
+              Guardar la fecha <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 18h6"/><path d="M16 2v3"/><path d="M19 15v6"/><path d="M21 11.5V5a2 2 0 00-2-2H5a2 2 0 00-2 2v14a2 2 0 002 2h8.3"/><path d="M3 9h18"/><path d="M8 2v3"/></svg>
+            </a>
+          </div>
+          <div class="event-countdown" id="event-countdown" hidden>
+            <p class="event-countdown-label" id="event-countdown-label">Falta poquito para encontrarnos</p>
+            <div class="event-countdown-values" id="event-countdown-values" role="timer" aria-live="off" aria-labelledby="event-countdown-label">
+              <div><span id="event-days">00</span><span>días</span></div>
+              <span class="event-countdown-separator" aria-hidden="true">:</span>
+              <div><span id="event-hours">00</span><span>horas</span></div>
+              <span class="event-countdown-separator" aria-hidden="true">:</span>
+              <div><span id="event-minutes">00</span><span>minutos</span></div>
+            </div>
+            <p class="event-today" id="event-today" role="status" aria-live="polite" hidden></p>
+          </div>
+        </div>
+      </section>
+      <!-- Iconos: Lucide (licencia ISC), copias en assets/iconos/. -->
+      <!-- Quinto capítulo: invitación individual. Configuración en rsvp-data.js. -->
+      <section class="rsvp-section" id="confirmacion" aria-labelledby="rsvp-title">
+        <div class="rsvp-inner">
+          <header class="rsvp-heading reveal">
+            <p class="rsvp-kicker"><span aria-hidden="true">05</span> UN LUGAR PARA TI</p>
+            <h2 id="rsvp-title">¿Compartimos este nuevo recuerdo?</h2>
+            <p class="rsvp-introduction">Me hará mucha ilusión celebrar contigo. Confírmame antes del <time id="rsvp-deadline" datetime="2026-11-07">7 de noviembre</time> para preparar todo con cariño</p>
+            <span class="rsvp-rule" aria-hidden="true"></span>
+          </header>
+          <div class="rsvp-paper">
+            <!-- Tarjeta de lugar: el nombre del invitado lo escribe rsvp.js. -->
+            <div class="rsvp-place-card">
+              <span class="rsvp-place-ornament" aria-hidden="true"></span>
+              <p class="rsvp-greeting" id="rsvp-greeting"><span class="rsvp-guest-name" id="rsvp-guest-name"></span><span class="visually-hidden">, </span><span class="rsvp-greeting-line">este lugar es para ti</span></p>
+              <p class="rsvp-personal-note">Una invitación personal, un nuevo recuerdo.</p>
+            </div>
+            <form id="rsvp-form" aria-labelledby="rsvp-title rsvp-greeting">
+              <p class="rsvp-error-summary" id="rsvp-error-summary" role="alert" aria-atomic="true"></p>
+              <fieldset class="rsvp-response" id="rsvp-response" aria-describedby="rsvp-response-error">
+                <legend>¿Nos vemos? <span>Elige una opción</span></legend>
+                <div class="rsvp-options">
+                  <label class="rsvp-option rsvp-option-yes">
+                    <input id="rsvp-yes" type="radio" name="attendance" value="yes" required aria-describedby="rsvp-response-error">
+                    <span class="rsvp-option-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><g class="rsvp-icon-shape"><path d="M2 9.5a5.5 5.5 0 0 1 9.591-3.676.56.56 0 0 0 .818 0A5.49 5.49 0 0 1 22 9.5c0 2.29-1.5 4-3 5.5l-5.492 5.313a2 2 0 0 1-3 .019L5 15c-1.5-1.5-3-3.2-3-5.5"/></g><path class="rsvp-icon-check" d="M20 6 9 17l-5-5"/></svg>
+                    </span>
+                    <span class="rsvp-option-text">Sí, ahí estaré</span>
+                    <span class="rsvp-sparkles" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+                  </label>
+                  <label class="rsvp-option rsvp-option-no">
+                    <input id="rsvp-no" type="radio" name="attendance" value="no" required aria-describedby="rsvp-response-error">
+                    <span class="rsvp-option-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24"><g class="rsvp-icon-shape"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"/><rect x="2" y="4" width="20" height="16" rx="2"/></g><path class="rsvp-icon-check" d="M20 6 9 17l-5-5"/></svg>
+                    </span>
+                    <span class="rsvp-option-text">Esta vez no podré</span>
+                  </label>
+                </div>
+                <p class="rsvp-error" id="rsvp-response-error" hidden></p>
+              </fieldset>
+              <div class="rsvp-field">
+                <label for="rsvp-message">¿Quieres dejarme un mensaje? <span>(opcional)</span></label>
+                <textarea id="rsvp-message" name="message" rows="4" maxlength="1000" placeholder="Escribe aquí unas palabras para mí…"></textarea>
+              </div>
+              <button class="rsvp-submit" id="rsvp-submit" type="submit" aria-describedby="rsvp-send-hint" disabled>
+                <span id="rsvp-submit-label">Confirmar por WhatsApp</span>
+                <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+              </button>
+              <p class="rsvp-send-hint" id="rsvp-send-hint">Se abrirá WhatsApp con tu respuesta lista; solo pulsa enviar</p>
+              <noscript><p>Activa JavaScript para preparar tu mensaje de confirmación.</p></noscript>
+            </form>
+            <div class="rsvp-preview" id="rsvp-preview" hidden>
+              <h3 id="rsvp-preview-title" tabindex="-1">Tu mensaje, listo para enviar</h3>
+              <p id="rsvp-preview-note">El teléfono aún no está disponible. Copia el mensaje para compartirlo con la anfitriona.</p>
+              <label for="rsvp-prepared">Mensaje preparado</label>
+              <textarea id="rsvp-prepared" rows="5" readonly aria-describedby="rsvp-preview-note"></textarea>
+              <div class="rsvp-preview-actions">
+                <button class="rsvp-copy" id="rsvp-copy" type="button">Copiar mensaje</button>
+                <a id="rsvp-open" target="_blank" rel="noopener noreferrer" hidden>Abrir WhatsApp <span class="visually-hidden">en otra pestaña</span></a>
+              </div>
+              <p class="rsvp-copy-status" id="rsvp-copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Último capítulo. Retrato provisional y firma editables en farewell-data.js. -->
+      <section class="farewell" id="despedida" aria-labelledby="farewell-title">
+        <div class="farewell-inner">
+          <span class="farewell-rule" aria-hidden="true"></span>
+          <div class="farewell-portrait reveal">
+            <img id="farewell-photo" src="assets/camila.jpg" width="1400" height="2098" loading="lazy" decoding="async"
+              alt="Retrato provisional de muestra para representar a Valentina">
+            <span class="farewell-photo-fallback" id="farewell-photo-fallback" role="img" aria-label="Monograma de Valentina" hidden>V</span>
+          </div>
+          <div class="farewell-copy reveal">
+            <p class="farewell-kicker">LO MEJOR ESTÁ POR COMPARTIR</p>
+            <h2 id="farewell-title">Qué bonito que seas parte de mi historia</h2>
+            <p class="farewell-message">Gracias por los recuerdos que ya tenemos y por los que todavía nos esperan</p>
+            <p class="farewell-signature" id="farewell-signature">Con cariño, Valentina</p>
+            <p class="farewell-personal" id="farewell-personal">Nos vemos para escribir otro recuerdo</p>
+          </div>
+        </div>
+      </section>
+      <footer class="invitation-footer" role="contentinfo">
+        <a class="studio-credit" href="https://rotfstudio.com/">Diseñado por <span>Rotf Studio</span></a>
+        <a class="back-to-top" id="back-to-top" href="#portada">
+          Volver al inicio
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></svg>
+        </a>
+      </footer>
+      </div>
+    </main>
+
+    <!-- El dialog nativo mantiene el foco dentro del visor y admite Escape. -->
+    <dialog class="photo-viewer" id="photo-viewer" aria-labelledby="viewer-caption">
+      <form method="dialog" class="viewer-close-form">
+        <button class="viewer-close" type="submit" aria-label="Cerrar fotografía" autofocus>
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></g></svg>
+        </button>
+      </form>
+      <figure class="viewer-figure">
+        <div class="viewer-image-area">
+          <img id="viewer-photo" alt="" decoding="async">
+          <p class="viewer-unavailable" id="viewer-unavailable" role="status" hidden>Este recuerdo volverá pronto.</p>
+        </div>
+        <figcaption id="viewer-caption"></figcaption>
+      </figure>
+    </dialog>
+
+    <dialog class="people-viewer" id="people-viewer" aria-labelledby="people-viewer-names" aria-describedby="people-viewer-phrase">
+      <form method="dialog" class="people-close-form">
+        <button class="people-close" type="submit" autofocus>
+          <span>Cerrar</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></g></svg>
+        </button>
+      </form>
+      <figure class="people-viewer-figure">
+        <div class="people-viewer-image-area">
+          <img id="people-viewer-image" alt="" decoding="async">
+          <p id="people-viewer-unavailable" role="status" hidden>Este recuerdo volverá pronto.</p>
+        </div>
+        <figcaption>
+          <h3 id="people-viewer-names"></h3>
+          <p id="people-viewer-phrase"></p>
+        </figcaption>
+      </figure>
+    </dialog>
+  </body>
+</html>
